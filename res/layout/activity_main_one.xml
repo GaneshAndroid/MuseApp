@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@id/main_image"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background" />
+
+    <RelativeLayout
+        android:id="@id/main_root"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@id/zomato_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/zlogo" />
+            </LinearLayout>
+
+            <com.application.zomato.utils.TextViewRegular
+                android:id="@id/zomato_tagline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="For the \nlove of food"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size35" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@id/prompt_text_container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <com.application.zomato.utils.TextViewBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/login_signup"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size22" />
+
+            <com.application.zomato.utils.TextViewBold
+                android:id="@id/to_get_the_most"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/to_get_the_most"
+                android:textColor="@color/white"
+                android:textSize="@dimen/size22" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@id/login_buttons_container"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/button_skip_this_step" >
+
+            <LinearLayout
+                android:id="@id/layout_connect_using_facebook"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/fb_background"
+                android:clickable="true"
+                android:onClick="facebookAction"
+                android:orientation="horizontal" >
+
+                <com.application.zomato.utils.TextViewBold
+                    android:id="@id/layout_connect_using_facebook_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@drawable/login_fb"
+                    android:drawablePadding="10.0dip"
+                    android:text="@string/fb_button"
+                    
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/layout_connect_using_google"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_connect_using_facebook"
+                android:layout_gravity="center"
+                android:background="@color/google_background"
+                android:clickable="true"
+                android:gravity="center_vertical"
+                android:onClick="googleAction"
+                android:orientation="horizontal" >
+
+                <com.application.zomato.utils.TextViewBold
+                    android:id="@id/layout_connect_using_google_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@drawable/login_google"
+                    android:drawablePadding="10.0dip"
+                    android:text="@string/google_button"
+                   
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/main_or_use_text"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_connect_using_google"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <View
+                    android:layout_width="0.0dip"
+                    android:layout_height="2.0px"
+                    android:layout_weight="1.0"
+                    android:background="@color/white" />
+
+                <com.application.zomato.utils.TextViewBold
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingLeft="5.0dip"
+                    android:paddingRight="5.0dip"
+                    android:text="@string/or_use_email"
+                    
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size12" />
+
+                <View
+                    android:layout_width="0.0dip"
+                    android:layout_height="2.0px"
+                    android:layout_weight="1.0"
+                    android:background="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@id/main_zomato_buttons"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/main_or_use_text"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@id/button_zomato_login"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/whitebuttoncustombacktranslucent"
+                    android:gravity="center"
+                    android:text="@string/email_login"
+                    
+                    android:textColor="@color/font_color"
+                    android:textSize="@dimen/size15" />
+
+                <View
+                    android:layout_width="2.0px"
+                    android:layout_height="fill_parent"
+                    android:background="@color/zdhl5" />
+
+                <Button
+                    android:id="@id/button_zomato_signup"
+                    android:layout_width="0.0dip"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/whitebuttoncustombacktranslucent"
+                    android:gravity="center"
+                    android:text="@string/email_signup"
+                    
+                    android:textColor="@color/font_color"
+                    android:textSize="@dimen/size15" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <Button
+            android:id="@id/button_skip_this_step"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/greybuttonfeedbacktranslucent"
+            android:gravity="center"
+            android:text="@string/main_nevermind"
+            
+            android:textColor="@color/white"
+            android:textSize="@dimen/size15" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@id/zomatologin_verification_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:id="@id/zomatologin_header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/zhl_dark"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/greybuttoncustomback"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="goBack" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/home_cross" />
+            </LinearLayout>
+
+            <com.application.zomato.utils.TextViewBold
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="4.0"
+                android:text="@string/verify_your_email"
+                
+                android:textColor="@color/font_color"
+                android:textSize="@dimen/size15" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@id/verify_root"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.application.zomato.utils.TextViewBold
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/verify_email"
+                android:textColor="@color/black"
+                android:textSize="@dimen/size20" />
+
+            <com.application.zomato.utils.TextViewRegular
+                android:id="@id/enter_verification_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/enter_verification_code"
+                android:textColor="@color/font_color"
+                android:textSize="@dimen/size15" />
+
+            <LinearLayout
+                android:id="@id/code_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <com.application.zomato.utils.EditTextBold
+                    android:id="@id/code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_separator_color"
+                    android:hint="\#1234"
+                    android:inputType="textNoSuggestions"
+                    android:paddingLeft="5.0dip"
+                    android:textColor="@color/black" />
+
+                <ImageButton
+                    android:id="@id/submit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/greenbuttonfeedback"
+                    android:clickable="true"
+                    android:onClick="submit"
+                    android:src="@drawable/misc_tickbiggerdone" />
+            </LinearLayout>
+
+            <com.application.zomato.utils.TextViewBold
+                android:id="@id/resend_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/greybuttoncustomback"
+                android:clickable="true"
+                android:gravity="center"
+                android:onClick="resendEmail"
+                android:text="@string/resend_email"
+                
+                android:textColor="@color/font_color" />
+
+            <LinearLayout
+                android:id="@id/separator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <View
+                    android:layout_width="0.0dip"
+                    android:layout_height="2.0px"
+                    android:layout_weight="1.0"
+                    android:background="@color/separator_color" />
+
+                <com.application.zomato.utils.TextViewRegular
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5.0dip"
+                    android:paddingRight="5.0dip"
+                    android:text="@string/or"
+                    
+                    android:textColor="@color/font_color"
+                    android:textSize="@dimen/size15" />
+
+                <View
+                    android:layout_width="0.0dip"
+                    android:layout_height="2.0px"
+                    android:layout_weight="1.0"
+                    android:background="@color/separator_color" />
+            </LinearLayout>
+
+            <com.application.zomato.utils.TextViewBold
+                android:id="@id/verify_facebook_login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/fb_background"
+                android:clickable="true"
+                android:drawableLeft="@drawable/login_fb"
+                android:drawablePadding="10.0dip"
+                android:gravity="center_vertical"
+                android:onClick="facebookAction"
+                android:text="@string/fb_button"
+                
+                android:textColor="@color/white"
+                android:textSize="@dimen/size15" />
+
+            <com.application.zomato.utils.TextViewBold
+                android:id="@id/verify_google_login"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/google_background"
+                android:clickable="true"
+                android:drawableLeft="@drawable/login_google"
+                android:drawablePadding="10.0dip"
+                android:gravity="center_vertical"
+                android:onClick="googleAction"
+                android:text="@string/google_button"
+                
+                android:textColor="@color/white"
+                android:textSize="@dimen/size15" />
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>
